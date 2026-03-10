@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "count_keys": 41473,
+    "ohe_dim": 27,
+    "profiles": 6,
+    "qL_keys": 41472,
+    "qU_keys": 41472,
+    "scalers": 6
+  },
+  "created_utc": "2026-02-18T12:01:32.362904+00:00",
+  "csv_file": "/Users/jd/Documents/GestaguaOG/project2/df_stationsv3.csv",
+  "csv_hash": "fe993c12c920c550964ee3ae3c921bd542805ba888f14c20a2bd6a348265468b",
+  "excluded_stations": [
+    "Station_6"
+  ],
+  "included_stations": [
+    "Station_1",
+    "Station_2",
+    "Station_3",
+    "Station_4",
+    "Station_7",
+    "Station_8"
+  ],
+  "output_artifact": "/Users/jd/Documents/GestaguaOG/project2/mondrian_artifacts_demo",
+  "rename_map_file": "/Users/jd/Documents/GestaguaOG/project2/station_rename.md",
+  "rename_map_hash": "5eb1cf9d549203a96d0ee76685f9d5077df616aba3b0d8382e109ca0d1942355",
+  "source_artifact": "/Users/jd/Documents/GestaguaOG/project2/mondrian_artifacts",
+  "source_artifact_hash": "73f89725ff509f7d41e64bb37fdfc74eb779197a5d456a5d8e93f23c6015e86f"
+}

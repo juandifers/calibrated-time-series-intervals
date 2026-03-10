@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Local runtime and generated outputs
+runtime/calibration_jobs.json
+runtime/calibration_states/
+data/processed/
+docs/rendered/
+tmp/
+
+# Local training outputs
+mondrian_artifacts/
+
+# Environment and editor files
+.env
+.env.*
+
+# Private context files not intended for publication
+Final Internship Report.pdf

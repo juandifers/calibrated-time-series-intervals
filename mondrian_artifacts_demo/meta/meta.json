@@ -1,0 +1,35 @@
+{
+  "active_stations": [
+    "Station_1",
+    "Station_2",
+    "Station_3",
+    "Station_4",
+    "Station_7",
+    "Station_8"
+  ],
+  "created_utc": "2026-02-18T12:01:23.435428+00:00",
+  "demo_artifact": true,
+  "excluded_stations": [
+    "Station_6"
+  ],
+  "features": [
+    "mean_1h",
+    "med_6h",
+    "std_6h",
+    "lag_96",
+    "diff_96",
+    "lag96_dow_interact",
+    "dow_sin",
+    "dow_cos",
+    "max_24h",
+    "std_24h"
+  ],
+  "grid_freq_min": 15,
+  "horizon": 96,
+  "in_length": 96,
+  "schema": 1,
+  "step_size": 4,
+  "target_col": "cons_scaled",
+  "tz": "Europe/Madrid",
+  "tz_grid": "UTC"
+}

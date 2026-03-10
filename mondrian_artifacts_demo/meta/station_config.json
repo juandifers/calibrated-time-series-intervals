@@ -1,0 +1,14 @@
+{
+  "active_stations": [
+    "Station_1",
+    "Station_2",
+    "Station_3",
+    "Station_4",
+    "Station_7",
+    "Station_8"
+  ],
+  "excluded_stations": [
+    "Station_6"
+  ],
+  "horizon": 96
+}
