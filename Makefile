@@ -1,10 +1,13 @@
 PYTHON ?= python
 BASE_URL ?= http://127.0.0.1:8000
 
-.PHONY: install run-api smoke validate-artifact render-notebooks
+.PHONY: install fetch-model run-api smoke validate-artifact render-notebooks
 
 install:
 	$(PYTHON) -m pip install -r requirements.txt
+
+fetch-model:
+	$(PYTHON) scripts/fetch_demo_model.py
 
 run-api:
 	$(PYTHON) scripts/run_demo_api.py

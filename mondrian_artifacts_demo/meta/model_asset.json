@@ -1,0 +1,13 @@
+{
+  "provider": "github_releases",
+  "repo_owner": "juandifers",
+  "repo_name": "xgboostTimeSeriesForecasting",
+  "release_tag": "v0.1.0",
+  "asset_name": "xgb_direct_multioutput.joblib",
+  "asset_sha256": "557cde6dcf756e027a1e22a891b184cb0164af0fad99417ce5f91083e713596f",
+  "checksum_asset_name": "xgb_direct_multioutput.joblib.sha256",
+  "checksum_asset_sha256": "3fc97d94e95ecf5bb2a929a55b73f1b58dc20bdc561b93260f513ffb028601d2",
+  "download_url": "https://github.com/juandifers/xgboostTimeSeriesForecasting/releases/download/v0.1.0/xgb_direct_multioutput.joblib",
+  "checksum_url": "https://github.com/juandifers/xgboostTimeSeriesForecasting/releases/download/v0.1.0/xgb_direct_multioutput.joblib.sha256",
+  "target_path": "mondrian_artifacts_demo/model/xgb_direct_multioutput.joblib"
+}

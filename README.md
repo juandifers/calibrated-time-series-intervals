@@ -59,25 +59,31 @@ flowchart LR
    pip install -r requirements.txt
    ```
 
-2. Validate the public demo artifact.
+2. Download the pinned release model asset.
+
+   ```bash
+   python scripts/fetch_demo_model.py
+   ```
+
+3. Validate the public demo artifact.
 
    ```bash
    python scripts/validate_demo_artifact.py
    ```
 
-3. Run the replay API and dashboard.
+4. Run the replay API and dashboard.
 
    ```bash
    python scripts/run_demo_api.py
    ```
 
-4. In a second terminal, run the smoke test.
+5. In a second terminal, run the smoke test.
 
    ```bash
    python scripts/smoke_test_demo_api.py --base-url http://127.0.0.1:8000
    ```
 
-5. Render the public notebooks to HTML.
+6. Render the public notebooks to HTML.
 
    ```bash
    python scripts/render_public_notebooks.py
@@ -114,7 +120,15 @@ More detail:
 4. Skim `notebooks/02_training_pipeline_design.ipynb` for the full modeling and calibration flow.
 5. Run the API and dashboard if you want the interactive service view.
 
-## Notes For Publication
+## Model Asset
 
-- The current demo artifact is intentionally self-contained, but the model file is large enough that it is better suited to a GitHub release asset, Git LFS, or another external download location before final publication.
-- The `Final Internship Report.pdf` file is kept only as local context for now and should not be part of the final public repository.
+The repo keeps the large model binary out of git and fetches it from the pinned GitHub Release `v0.1.0`.
+
+- Manifest: `mondrian_artifacts_demo/meta/model_asset.json`
+- Fetch command: `python scripts/fetch_demo_model.py`
+
+The fetch script verifies:
+
+- the model file SHA256
+- the uploaded `.sha256` asset hash
+- the checksum file content against the expected model hash

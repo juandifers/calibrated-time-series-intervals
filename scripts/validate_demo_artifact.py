@@ -39,6 +39,12 @@ def main() -> None:
     if not artifact.exists():
         raise FileNotFoundError(f"Artifact not found: {artifact}")
 
+    model_path = artifact / "model" / "xgb_direct_multioutput.joblib"
+    _assert(
+        model_path.exists(),
+        "Demo model artifact is missing. Run `python scripts/fetch_demo_model.py` first.",
+    )
+
     station_cfg = _load_json(artifact / "meta" / "station_config.json")
     active = station_cfg.get("active_stations", [])
     excluded = station_cfg.get("excluded_stations", [])

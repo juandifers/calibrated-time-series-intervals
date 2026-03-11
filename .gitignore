@@ -25,6 +25,7 @@ tmp/
 
 # Local training outputs
 mondrian_artifacts/
+mondrian_artifacts_demo/model/
 
 # Environment and editor files
 .env

@@ -73,6 +73,12 @@ def load_demo_bundle(artifact_dir: Path) -> DemoBundle:
     ]
     missing = [str(p) for p in required if not p.exists()]
     if missing:
+        if not model_path.exists():
+            raise FileNotFoundError(
+                "Demo model artifact is missing. "
+                "Download it with `python scripts/fetch_demo_model.py` before starting the service. "
+                f"Expected path: {model_path}"
+            )
         raise FileNotFoundError(f"Missing artifact files: {missing}")
 
     try:
