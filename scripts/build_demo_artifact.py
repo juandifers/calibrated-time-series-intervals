@@ -278,14 +278,10 @@ def main() -> None:
 
     # 11) manifest
     manifest = {
-        "source_artifact": str(source),
-        "source_artifact_hash": hash_directory(source),
-        "rename_map_file": str(rename_map_path),
-        "rename_map_hash": hash_file(rename_map_path),
-        "csv_file": str(csv_path),
-        "csv_hash": hash_file(csv_path),
-        "output_artifact": str(output),
+        "demo_artifact": True,
         "created_utc": datetime.now(timezone.utc).isoformat(),
+        "dataset_file": csv_path.name,
+        "dataset_sha256": hash_file(csv_path),
         "included_stations": active_new,
         "excluded_stations": sorted(excluded_new),
         "counts": {
@@ -296,6 +292,7 @@ def main() -> None:
             "scalers": len(out_scalers),
             "ohe_dim": ohe_dim,
         },
+        "note": "Built from a private source artifact and rename map that are intentionally excluded from this public repo.",
     }
     stable_json_dump(manifest, output / "meta" / "demo_manifest.json")
 
