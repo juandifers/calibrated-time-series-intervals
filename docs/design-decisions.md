@@ -74,6 +74,8 @@ That separation makes it easier to explain:
 - what changed during runtime calibration
 - how interval behavior can adapt without mutating the original artifact snapshot
 
+## What This Demonstrates
+
 - the repo is about reliability and uncertainty, not just forecast curves
 - the design choices are motivated by data behavior, not by model novelty alone
 - the system includes packaging, validation, replay, and service interfaces, not only notebooks

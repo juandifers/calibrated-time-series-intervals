@@ -83,6 +83,8 @@ flowchart LR
    pip install -r requirements.txt
    ```
 
+   To **just run the demo** (API + dashboard), the slimmer `pip install -r requirements_demo.txt` is enough — it omits the notebook/training extras (statsmodels, matplotlib, jupyterlab, ipykernel, pyarrow). Use the full `requirements.txt` if you also want to run the notebooks or rebuild artifacts.
+
 2. Download the pinned release model asset.
 
    ```bash

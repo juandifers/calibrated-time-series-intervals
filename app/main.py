@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import sys
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -27,30 +28,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-app = FastAPI(
-    title="Calibrated Time-Series Intervals — Demo API",
-    description="Public demo service for single-artifact Mondrian forecasting and manual calibration",
-    version="0.1.0",
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-app.include_router(mondrian_router.router, prefix="/api", tags=["mondrian"])
-app.include_router(calibration_router.router, prefix="/api", tags=["calibration"])
-app.include_router(stations_router.router, tags=["stations"])
-
-dash_app = create_dash_app()
-app.mount("/dashboard", WSGIMiddleware(dash_app.server))
-
-
-@app.on_event("startup")
-async def startup_event():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     cfg = load_config()
     cfg.runtime_states_dir.mkdir(parents=True, exist_ok=True)
     cfg.runtime_jobs_path.parent.mkdir(parents=True, exist_ok=True)
@@ -100,6 +79,31 @@ async def startup_event():
         cfg.artifact_path,
     )
 
+    yield
+
+
+app = FastAPI(
+    title="Calibrated Time-Series Intervals — Demo API",
+    description="Public demo service for single-artifact Mondrian forecasting and manual calibration",
+    version="0.1.0",
+    lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(mondrian_router.router, prefix="/api", tags=["mondrian"])
+app.include_router(calibration_router.router, prefix="/api", tags=["calibration"])
+app.include_router(stations_router.router, tags=["stations"])
+
+dash_app = create_dash_app()
+app.mount("/dashboard", WSGIMiddleware(dash_app.server))
+
 
 @app.get("/")
 async def root():
@@ -112,4 +116,6 @@ async def root():
 
 @app.get("/health")
 async def health():
-    return {"status": "healthy", "horizon": 96}
+    cfg = getattr(app.state, "cfg", None)
+    horizon = getattr(cfg, "horizon", 96)
+    return {"status": "healthy", "horizon": horizon}
