@@ -19,20 +19,19 @@ class AppConfig:
     excluded_stations: tuple[str, ...]
 
 
-def _resolve_project2_root() -> Path:
-    cwd = Path.cwd().resolve()
-    candidates = [cwd, *cwd.parents]
-    for base in candidates:
-        if base.name == "project2" and (base / "df_stationsv3.csv").exists():
-            return base
-        nested = base / "project2"
-        if (nested / "df_stationsv3.csv").exists():
-            return nested
-    raise FileNotFoundError("Could not locate project2 root")
+def _resolve_project_root() -> Path:
+    # app/config.py -> repo root is two levels up. Resolve by location,
+    # not by directory name, so a fresh clone works regardless of folder name.
+    root = Path(__file__).resolve().parents[1]
+    if not (root / "df_stationsv3.csv").exists():
+        raise FileNotFoundError(
+            f"Could not locate project root: expected df_stationsv3.csv under {root}"
+        )
+    return root
 
 
 def load_config() -> AppConfig:
-    root = _resolve_project2_root()
+    root = _resolve_project_root()
     artifact = root / "mondrian_artifacts_demo"
     station_cfg_path = artifact / "meta" / "station_config.json"
 
