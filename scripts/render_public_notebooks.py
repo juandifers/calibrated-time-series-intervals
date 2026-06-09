@@ -20,12 +20,12 @@ class NotebookSpec:
 
 
 def parse_args() -> argparse.Namespace:
-    project2_root = Path(__file__).resolve().parents[1]
+    repo_root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description="Render public notebooks to HTML")
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=project2_root / "docs" / "rendered",
+        default=repo_root / "docs" / "rendered",
         help="Directory for rendered notebook artifacts.",
     )
     parser.add_argument(
@@ -47,7 +47,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def resolve_project2_root() -> Path:
+def resolve_repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
@@ -73,7 +73,7 @@ def run_cmd(cmd: list[str], cwd: Path, env: dict[str, str]) -> None:
 
 def main() -> None:
     args = parse_args()
-    root = resolve_project2_root()
+    root = resolve_repo_root()
     output_dir = args.output_dir.resolve()
     tmp_dir = root / "tmp" / "rendered_notebooks"
     output_dir.mkdir(parents=True, exist_ok=True)

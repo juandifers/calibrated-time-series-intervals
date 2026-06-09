@@ -14,12 +14,12 @@ import requests
 
 
 def parse_args() -> argparse.Namespace:
-    project2_root = Path(__file__).resolve().parents[1]
+    repo_root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description="Fetch the demo model artifact from GitHub Releases")
     parser.add_argument(
         "--manifest",
         type=Path,
-        default=project2_root / "mondrian_artifacts_demo" / "meta" / "model_asset.json",
+        default=repo_root / "mondrian_artifacts_demo" / "meta" / "model_asset.json",
         help="Path to the model asset manifest.",
     )
     parser.add_argument(

@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 
 app = FastAPI(
-    title="Project2 Mondrian Demo API",
+    title="Calibrated Time-Series Intervals — Demo API",
     description="Public demo service for single-artifact Mondrian forecasting and manual calibration",
     version="0.1.0",
 )
@@ -104,7 +104,7 @@ async def startup_event():
 @app.get("/")
 async def root():
     return {
-        "message": "Project2 Mondrian Demo API",
+        "message": "Calibrated Time-Series Intervals — Demo API",
         "docs": "/docs",
         "dashboard": "/dashboard",
     }

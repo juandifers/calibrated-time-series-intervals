@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke-test project2 demo API endpoints."""
+"""Smoke-test the demo API endpoints."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ import requests
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Smoke-test project2 demo API")
+    parser = argparse.ArgumentParser(description="Smoke-test the demo API")
     parser.add_argument("--base-url", default="http://localhost:8000")
     parser.add_argument("--run-calibration", action="store_true")
     parser.add_argument("--calibration-days", type=int, default=7)

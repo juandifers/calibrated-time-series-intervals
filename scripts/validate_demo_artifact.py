@@ -11,13 +11,13 @@ from pathlib import Path
 
 
 def parse_args() -> argparse.Namespace:
-    project2_root = Path(__file__).resolve().parents[1]
-    parser = argparse.ArgumentParser(description="Validate project2 demo artifact")
-    parser.add_argument("--artifact", type=Path, default=project2_root / "mondrian_artifacts_demo")
+    repo_root = Path(__file__).resolve().parents[1]
+    parser = argparse.ArgumentParser(description="Validate the demo artifact")
+    parser.add_argument("--artifact", type=Path, default=repo_root / "mondrian_artifacts_demo")
     parser.add_argument(
         "--source-artifact",
         type=Path,
-        default=project2_root / "mondrian_artifacts",
+        default=repo_root / "mondrian_artifacts",
         help="Optional private source artifact used for extra consistency checks.",
     )
     return parser.parse_args()

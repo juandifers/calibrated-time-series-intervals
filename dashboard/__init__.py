@@ -1,1 +1,1 @@
-"""Dashboard package for project2 demo."""
+"""Dashboard package for the demo."""

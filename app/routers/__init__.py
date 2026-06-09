@@ -1,1 +1,1 @@
-"""API routers for the project2 demo service."""
+"""API routers for the demo service."""
