@@ -32,9 +32,6 @@ Real numbers from the historical replay backtest path (`scripts/compute_demo_met
 | Station_8 | 0.902 | 1.790 | 2.622 | 7.991 | 10 |
 | **Overall** | **0.896** | **1.856** | **3.302** | **9.434** | **59** |
 
-_Empirical coverage vs. a nominal 90% target, aggregated over 59 historical replay windows (base intervals, no runtime overlays), weighted by the number of valid forecast points. Regenerate with `python scripts/fetch_demo_model.py && python scripts/compute_demo_metrics.py`._
-
-![Example forecast with calibrated 90% interval and actual overlay](docs/img/example_forecast.png)
 
 _Interactive dashboard (`/dashboard`):_
 
@@ -71,7 +68,7 @@ flowchart LR
 - `dashboard/`: Dash UI mounted inside the FastAPI app.
 - `mondrian_artifacts_demo/`: public demo artifact bundle used by the replay service.
 - `scripts/`: entrypoints for running the API, validating the artifact, smoke-testing endpoints, and exporting notebooks.
-- `docs/`: recruiter-facing technical notes and publishing guidance.
+- `docs/`: technical notes
 
 ## Quickstart
 
