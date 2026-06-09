@@ -36,7 +36,11 @@ _Empirical coverage vs. a nominal 90% target, aggregated over 59 historical repl
 
 ![Example forecast with calibrated 90% interval and actual overlay](docs/img/example_forecast.png)
 
-_Interactive dashboard:_ ![dashboard](docs/img/dashboard.png) — replace with a real screenshot/GIF of /dashboard.
+_Interactive dashboard (`/dashboard`):_
+
+![Dashboard replay for Station_3 showing forecast, 90% interval, and actual overlay with 100% coverage on this window](docs/img/dashboard.png)
+
+A live historical-replay window (Station_3, 2025-01-04) where the forecast tracks the actual closely — a strong/best-case window (PICP 100% on these 96 steps), not the typical case. See the Results table above for aggregate coverage across all stations and windows.
 
 ## Architecture
 
